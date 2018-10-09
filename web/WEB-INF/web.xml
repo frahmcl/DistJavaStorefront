@@ -11,6 +11,30 @@
         <servlet-name>us.mattgreen.controller.ProductController</servlet-name>
         <url-pattern>/ProductController</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>cart</servlet-name>
+        <servlet-class>us.mattgreen.controller.CartController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>cart</servlet-name>
+        <url-pattern>/cart.go</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>cartPlace</servlet-name>
+        <servlet-class>us.mattgreen.controller.CartPlaceController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>cartPlace</servlet-name>
+        <url-pattern>/cartplace.go</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>bill</servlet-name>
+        <servlet-class>us.mattgreen.controller.BillController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>bill</servlet-name>
+        <url-pattern>/bill.go</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30

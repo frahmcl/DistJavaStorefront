@@ -42,6 +42,9 @@
                 <li class="current">
                     <a href="pricing.jsp">Pricing</a>
                 </li>
+                <li>
+                    <a href="cart.jsp">Cart</a>
+                </li>
             </ul>
         </nav>
     </div>
@@ -76,9 +79,9 @@
         <td><a href="?id=<%= product.getId() %>"><%= product.getProductName() %></a></td>
         <td> <%= product.getPrice() %> </td>
         <td>
-            <form method="post" action="ProductController">
-                <input name="productName" value="<%=product.getProductName()%>" hidden>
-                <button type="submit"  value="ProductController">
+            <form method="GET" action="cart.jsp">
+                <input type="checkbox" name="productId" value="<%=product.getId()%>" hidden>
+                <button type="submit"  value="productController">
                     Add to Cart
                 </button>
             </form>

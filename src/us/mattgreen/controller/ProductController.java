@@ -6,6 +6,7 @@ import us.mattgreen.model.ProductService;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -43,10 +44,11 @@ public class ProductController extends HttpServlet {
         ProductService productService = new ProductService();
         RequestDispatcher dispatcher = null;
         String search = request.getParameter("search");
-        String id = request.getParameter("id");
+        int id = Integer.parseInt(request.getParameter("id"));
+        String item = request.getParameter("items");
 
-        if(id != null){
-            Product product = productService.getProduct(id);
+        if(id >= 0 ){
+            Product product = productService.getSingleItem(id);
             request.setAttribute("product", product);
             RequestDispatcher view =
                     request.getRequestDispatcher("productDetail.jsp");
@@ -64,6 +66,13 @@ public class ProductController extends HttpServlet {
                     request.getRequestDispatcher("productList.jsp");
             view.forward(request, response);
         }
+
+      /*  if(item != null){
+            Cookie items = new Cookie("items", request.getParameter("items"));
+            items.setMaxAge(60*60*24);
+            RequestDispatcher view = request.getRequestDispatcher("cart.jsp");
+            view.forward(request, response);
+        }*/
 
         dispatcher.forward(request, response);
         //String id = request.getParameter("id");

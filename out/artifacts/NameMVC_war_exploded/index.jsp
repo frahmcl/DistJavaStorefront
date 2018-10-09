@@ -25,12 +25,11 @@
           <a href="index.jsp">Home</a>
         </li>
         <li>
-          <a href="about.html">About</a>
-        </li>
-        <li>
           <a href="pricing.jsp">Pricing</a>
         </li>
-
+        <li>
+          <a href="cart.go">Cart</a>
+        </li>
       </ul>
     </nav>
   </div>
@@ -80,11 +79,8 @@
         lacinia leo velit, vel viverra lectus lobortis eget.</p>
     </div>
   </div>
-  <table>
 
-  </table>
 </section>
-
 <footer>
   <p>Frahm Stores, Copyright &copy; 2018</p>
 </footer>

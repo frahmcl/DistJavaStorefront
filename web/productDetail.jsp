@@ -34,6 +34,9 @@
                 <li class="current">
                     <a href="pricing.jsp">Pricing</a>
                 </li>
+                <li>
+                    <a href="cart.jsp">Cart</a>
+                </li>
             </ul>
         </nav>
     </div>
@@ -65,6 +68,12 @@
         </td>
         <td width="400"><%= product.getDescription()%></td>
         </td>
+        <form method="GET" action="cart.jsp">
+            <input name="items" value="<%=product.getProductName()%>" hidden>
+            <button type="submit"  value="Submit">
+                Add to Cart
+            </button>
+        </form>
     </tr>
 
 </table>

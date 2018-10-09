@@ -1,6 +1,6 @@
 
 <%@ page import="java.util.List" %>
-<%@ page import="us.mattgreen.model.Product" %>
+<%@ page import="us.mattgreen.model.*" %>
 <%@ page import="us.mattgreen.model.ProductService" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,11 +28,11 @@
                 <li >
                     <a href="index.jsp">Home</a>
                 </li>
-                <li>
-                    <a href="about.html">About</a>
-                </li>
                 <li class="current">
                     <a href="pricing.jsp">Pricing</a>
+                </li>
+                <li>
+                    <a href="cart.go">Cart</a>
                 </li>
             </ul>
         </nav>
@@ -55,6 +55,26 @@
         </article>
     </div>
 </section>
+<%--
+
+    <table>
+        <%
+            List products = (List) request.getAttribute("listOfProducts");
+            Iterator it = products.iterator();
+            while(it.hasNext()){
+                Product product = (Product) it.next();
+                out.print("<tr><td><img src=img/"
+                        + product.getProductName().replaceAll("[^a-zA-Z]+", "").toLowerCase()
+                        + ".jpg height='100' width='150'> </td> <td>"
+                        + product.getProductName()
+                        + "</td> <td>"
+                        +  product.getPrice() + "</td></tr>");
+            }
+        %>
+    </table>
+    <input type="submit" value="Purchase">
+    </form>--%>
+<form action="cartplace.go">
 <table border="1">
     <%
         ProductService productService = new ProductService();
@@ -67,25 +87,17 @@
         </td>
         <td><%= product.getProductName() %></td>
         <td>
-            <a href="?id=<%= product.getId() %>"><%= product.getPrice() %></a>
+           <%= product.getPrice() %>
         </td>
-
-        <td>
-            <form method="post" action="ProductController">
-                <input name="productName" value="<%=product.getProductName()%>" hidden>
-                <button type="submit"  value="ProductController">
-                    Add to Cart
-                </button>
-            </form>
-
-        </td>
+        <td><input type='checkbox' name='cartItem' value='<%= product.getId() %>'></td></tr>
+    </td>
     </tr>
     <%
         }
     %>
 </table>
-
-
+   <input type="submit" value="Purchase">
+</form>
 <footer>
     <p>Frahm Stores, Copyright &copy; 2018</p>
 </footer>
