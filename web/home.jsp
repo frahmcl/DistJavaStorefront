@@ -25,7 +25,7 @@
           <a href="index.jsp">Home</a>
         </li>
         <li>
-          <a href="pricing.jsp">Pricing</a>
+          <a href="productList.jsp">Product List</a>
         </li>
         <li>
           <a href="cart.go">Cart</a>
